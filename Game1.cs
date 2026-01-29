@@ -16,7 +16,9 @@ public class Game1 : Game
     private SpriteFont _font;
     private string _output = "Your First Obsatcle";
 
+    private SimpleAnimation _horseAnimation;
     private SimpleAnimation _walkingAnimation;
+
     private Vector2 horseLocation = new Vector2(80, 200);
     private Vector2 beetleLocation = new Vector2(400,140);
     private int beetleModifier = 1;
@@ -50,8 +52,8 @@ public class Game1 : Game
 
         _font = Content.Load<SpriteFont>("SansFont");
 
-        _walkingAnimation = new SimpleAnimation(Content.Load<Texture2D>("Horse"), 100, 80, 8, 8);
-
+        _walkingAnimation = new SimpleAnimation(Content.Load<Texture2D>("SecondSpriteSheet"), 60, 80, 6, 8);
+        _horseAnimation = new SimpleAnimation(Content.Load<Texture2D>("Horse"), 80, 80, 7, 8);
         // TODO: use this.Content to load your game content here
     }
 
@@ -61,6 +63,7 @@ public class Game1 : Game
             Exit();
 
         _walkingAnimation.Update(gameTime);
+        _horseAnimation.Update(gameTime);
 
         KeyboardState kbCurrentState = Keyboard.GetState();
 
@@ -90,9 +93,13 @@ public class Game1 : Game
         }
         // TODO: Add your update logic here
         beetleLocation.Y += 4*beetleModifier;
-        horseLocation += _PlayerInput*5;
-
+        if (!((horseLocation + _PlayerInput*5).X <= 0 || (horseLocation + _PlayerInput*5).X >= 550 ||(horseLocation + _PlayerInput*5).Y <= 0 || (horseLocation + _PlayerInput*5).Y >= 250))
+        {
+            horseLocation += _PlayerInput*5; 
+        }
+        
         base.Update(gameTime);
+        
     }
 
     protected override void Draw(GameTime gameTime)
@@ -107,7 +114,9 @@ public class Game1 : Game
 
         _spriteBatch.DrawString(_font, _output, new Vector2(20,20), Color.White);
 
-        _walkingAnimation.Draw(_spriteBatch, horseLocation, SpriteEffects.None);
+        _horseAnimation.Draw(_spriteBatch, horseLocation, SpriteEffects.None);
+
+        _walkingAnimation.Draw(_spriteBatch, new Vector2(570, 260), SpriteEffects.None);
 
         _spriteBatch.End();
         // TODO: Add your drawing code here
