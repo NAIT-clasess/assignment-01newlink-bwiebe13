@@ -52,8 +52,8 @@ public class Game1 : Game
 
         _font = Content.Load<SpriteFont>("SansFont");
 
-        _walkingAnimation = new SimpleAnimation(Content.Load<Texture2D>("SecondSpriteSheet"), 60, 80, 6, 8);
-        _horseAnimation = new SimpleAnimation(Content.Load<Texture2D>("Horse"), 80, 80, 7, 8);
+        _walkingAnimation = new SimpleAnimation(Content.Load<Texture2D>("SecondSpriteSheet3"), 430/6, 58, 6, 8);
+        _horseAnimation = new SimpleAnimation(Content.Load<Texture2D>("Horse"), 777/7, 243/3, 7, 8);
         // TODO: use this.Content to load your game content here
     }
 

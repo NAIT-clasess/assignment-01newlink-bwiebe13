@@ -44,7 +44,7 @@
 /processorParam:TextureFormat=Compressed
 /build:SansFont.spritefont
 
-#begin SecondSpriteSheet.jpg
+#begin SecondSpriteSheet3.jpg
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -54,7 +54,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:SecondSpriteSheet.jpg
+/build:SecondSpriteSheet3.jpg
 
 #begin Station.png
 /importer:TextureImporter
